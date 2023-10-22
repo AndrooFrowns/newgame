@@ -1,4 +1,3 @@
-
 #[derive(Debug, Clone, Copy)]
 pub struct EventDispatcher {
     event: Event,
@@ -7,38 +6,41 @@ pub struct EventDispatcher {
 
 impl EventDispatcher {
     pub fn new(event: Event) -> Self {
-        Self {event, handled: false}
+        Self {
+            event,
+            handled: false,
+        }
     }
 }
 
 #[derive(Debug, Clone, Copy)]
-pub enum WindowEvent{
+pub enum WindowEvent {
     Close,
-    Resize{width: u32, height: u32},
+    Resize { width: u32, height: u32 },
     Focus,
     LostFocus,
     Moved,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub enum AppEvent{
+pub enum AppEvent {
     Tick,
     Update,
     Render,
 }
 
 #[derive(Debug, Clone, Copy)]
-pub enum KeyEvent{
-    Pressed{keycode: i32, repeat_count: i32},
-    Released{keycode: i32},
+pub enum KeyEvent {
+    Pressed { keycode: i32, repeat_count: i32 },
+    Released { keycode: i32 },
 }
 
 #[derive(Debug, Clone, Copy)]
-pub enum MouseEvent{
-    Pressed{x: f32, y: f32},
-    Released{x: f32, y: f32},
-    Moved{x: f32, y: f32},
-    Scolled{x: f32, y: f32},
+pub enum MouseEvent {
+    Pressed { x: f32, y: f32 },
+    Released { x: f32, y: f32 },
+    Moved { x: f32, y: f32 },
+    Scolled { x: f32, y: f32 },
 }
 
 #[derive(Debug, Clone, Copy)]
@@ -59,5 +61,3 @@ impl Event {
         }
     }
 }
-
-
